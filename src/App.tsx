@@ -5,11 +5,19 @@ import { toast } from "./hooks/use-toast";
 import { Toaster } from "./components/ui/toaster";
 import "./App.css";
 
+/**
+ * The main application component that renders the gradient palette generator.
+ * It allows users to select a color and generates a gradient based on that color.
+ */
 function App() {
+  // State to hold the selected color
   const [color, setColor] = useState<ColorResult | null>(null);
+  // State to hold the generated gradient colors
   const [gradient, setGradient] = useState<number[][] | null>(null);
+  // State to track which color index was copied to clipboard
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
+  // Effect to generate a random gradient on component mount
   useEffect(() => {
     invoke("generate_gradient_from_rgb_impl", {
       r: Math.floor(Math.random() * 256),
@@ -57,7 +65,7 @@ function App() {
               {/* Generated Colors Section */}
               <div className="w-full lg:w-2/3">
                 {gradient ? (
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
                     {gradient.map((color, index) => {
                       return (
                         <div
