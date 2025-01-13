@@ -59,3 +59,22 @@ fn generate_gradient_from_rgb_impl(r: u8, g: u8, b: u8) -> Vec<Vec<u8>> {
     // Return the vector of RGB colors representing the gradient.
     colors
 }
+
+/// Example output of the `generate_gradient_from_rgb_impl` function.
+///
+/// This example demonstrates how the function generates a gradient based on the input RGB values.
+/// For instance, if the input RGB values are (255, 0, 0), the output might look like this:
+///
+/// ```
+/// let example_output = vec![
+///     vec![255, 0, 0],   // Bright red
+///     vec![204, 51, 51], // A lighter shade of red
+///     vec![153, 102, 102], // Even lighter shade
+///     vec![102, 153, 153], // Transitioning towards a different hue
+///     vec![51, 204, 204], // Further transition
+///     vec![0, 255, 255],   // Bright cyan
+///     vec![0, 204, 204],   // A darker shade of cyan
+///     vec![0, 153, 153],   // Even darker shade
+///     vec![0, 102, 102],   // Darkest shade before reaching black
+/// ];
+/// ```
